@@ -1,0 +1,42 @@
+JIRA 123
+========
+
+General Questions
+1. Who is the target audience?
+- Assumption is technical audience to look at trends so there is no need to adjust the repo display
+2. When do we want to poll the API and how often?
+- It is probably unlikely for a Github repo to change quickly for a user so this can be polled upon searching for a user
+3. Where and how do we display this information?
+- Display in a table with an input to choose a different user
+4. What does recent activity mean in this context?
+- Recent activity in this case will be a simple polling of the user's information in the last 30 days
+
+Additional Questions
+1. What counts as a contribution to the repository?
+- Based on the different event types, for the scope of this assessment and the purpose of analyzing how active
+a user is for a repository, the following events should contribute significantly for our analysis:
+    * CommitCommentEvent
+    * IssueCommentEvent
+    * PullRequestEvent
+    * PullRequestReviewEvent
+    * PullRequestReviewCommentEvent
+    * PullRequestReviewThreadEvent
+    * PushEvent
+
+2. Definition of a user-owned repo? Public, Forks? How should this be flagged?
+- User-owned repo will be defined as the actual owner of the repository
+3. Do we still want to track the user's repo even if they had not contributed recently?
+- For the simplicity of this assessment, we will poll the recent events and utilize that to check trends.
+Given additional time and constraints, it would be good to see if there are previous repositories that are no longer committed to see trends.
+4. Three most common activity types 
+- How do we handle ties? Since we are looking for the top three items and analyzing trends, we display ties still
+5. Sorting and Filtering?
+- Not in the scope of this assessment but would be good to implement as a future enhancement
+
+Scalability and Modulary
+1. Will there be multiple users to be fetched at once, e.g. comparing?
+- A single user is polled here, no need to compare in the scope of this project.
+2. Will we run into any rate-limiting with this API?
+- Since we are polling only when the user is being searched for, no rate limit is needed but will be good to implement debouncing on search.
+3. What other items in the roadmap may affect this feature to account for?
+- Out of scope of this current assessment but this would be something to revisit later and adjust items necessary.

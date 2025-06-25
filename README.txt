@@ -1,4 +1,5 @@
 How to run application:
-- Navigate to the Sample App folder
-- Run "Yarn install" to install dependencies
-- Run "Yarn start" to start the application
+- Navigate to the jellyvision-ngk3 folder
+- Run "npm install" to install dependencies
+- Run "npx expo start" to start the application
+- This can be run on the web to view
